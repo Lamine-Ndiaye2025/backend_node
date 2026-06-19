@@ -1,0 +1,26 @@
+const express = require("express");
+const router = express.Router();
+
+const reponseController = require("../controllers/reponseController");
+const { verifierReponse } = require("../middleware/reponseMiddleware");
+
+// Ajouter une réponse
+router.post(
+  "/ajouter",
+  verifierReponse,
+  reponseController.ajouterReponse
+);
+
+// Récupérer toutes les réponses d'une question
+router.get(
+  "/question/:questionId",
+  reponseController.getReponsesByQuestion
+);
+
+// Supprimer une réponse
+router.delete(
+  "/:id",
+  reponseController.supprimerReponse
+);
+
+module.exports = router;
