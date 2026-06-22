@@ -3,7 +3,7 @@ const Question = require("../models/question.model");
 // Ajouter une question
 exports.ajouterQuestion = async (req, res) => {
   try {
-    const { titre, description, userId } = req.body;
+    const { titre, description, tages } = req.body;
 
     if (!titre || !description) {
       return res.status(400).json({
@@ -14,7 +14,7 @@ exports.ajouterQuestion = async (req, res) => {
     const nouvelleQuestion = new Question({
       titre,
       description,
-      user: userId,
+      user: tages,
     });
 
     await nouvelleQuestion.save();
