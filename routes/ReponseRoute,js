@@ -6,7 +6,7 @@ const { verifierReponse } = require("../middleware/reponseMiddleware");
 
 // Ajouter une réponse
 router.post(
-  "/ajouter",
+  "/reponse",
   verifierReponse,
   reponseController.ajouterReponse
 );
