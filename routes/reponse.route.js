@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const reponseController = require("../controllers/reponseController");
+const reponseController = require("../controllers/reponse.controller");
 const { verifierReponse } = require("../middleware/reponseMiddleware");
 
 // Ajouter une réponse

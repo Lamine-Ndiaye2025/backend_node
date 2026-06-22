@@ -1,15 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const questionController = require("../controllers/questionController");
-const { verifierQuestion } = require("../middleware/QuestionMiddleware");
+const questionController = require("../controllers/question.controller");
+const { verifierQuestion } = require("../middleware/questionMiddleware");
 
 // Ajouter une question
-router.post(
-  "/ajouter",
-  verifierQuestion,
-  questionController.ajouterQuestion
-);
+router.post("/ajouter", verifierQuestion, questionController.ajouterQuestion);
 
 // Récupérer toutes les questions
 router.get("/", questionController.getQuestions);

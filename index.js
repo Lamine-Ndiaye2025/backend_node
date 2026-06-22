@@ -1,9 +1,10 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-
 const connectBD = require("./config/db");
 const userRoute = require("./routes/user.route");
+const questionRoute = require("./routes/question.route");
+const reponseRoute = require('./routes/reponse.route')
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.use(
 
 // Routes
 app.use("/api/auth", userRoute);
+app.use("/api/question", questionRoute);
+app.use("/api/Reponse", reponseRoute);
 
 app.get("/", (req, res) => {
   res.send("Bienvenue sur mon serveur");
