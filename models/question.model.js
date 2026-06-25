@@ -14,7 +14,7 @@ const questionSchema = new mongoose.Schema(
       trim: true,
     },
 
-    auteur: {
+    tages: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
