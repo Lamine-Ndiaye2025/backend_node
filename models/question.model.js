@@ -2,22 +2,25 @@ const mongoose = require("mongoose");
 
 const questionSchema = new mongoose.Schema(
   {
+    // Titre de la question
     titre: {
       type: String,
-      required: true,
+      required: [true, "Le titre est obligatoire"],
       trim: true,
     },
 
+    // Description de la question
     description: {
       type: String,
-      required: true,
+      required: [true, "La description est obligatoire"],
       trim: true,
     },
 
-    tages: {
+    // Auteur de la question
+    auteur: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: [true, "L'auteur est obligatoire"],
     },
 
     // Nombre de vues
@@ -26,7 +29,7 @@ const questionSchema = new mongoose.Schema(
       default: 0,
     },
 
-    // Votes positifs
+    // Utilisateurs ayant voté positivement
     upVotes: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -34,7 +37,7 @@ const questionSchema = new mongoose.Schema(
       },
     ],
 
-    // Votes négatifs
+    // Utilisateurs ayant voté négativement
     downVotes: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -48,7 +51,7 @@ const questionSchema = new mongoose.Schema(
       default: 0,
     },
 
-    // Tags de la question
+    // Liste des tags
     tags: [
       {
         type: String,
@@ -56,7 +59,7 @@ const questionSchema = new mongoose.Schema(
       },
     ],
 
-    // Question résolue ou non
+    // La question est-elle résolue ?
     resolue: {
       type: Boolean,
       default: false,
